@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnvlqnuhgg216"]
+[gd_scene load_steps=10 format=3 uid="uid://dnvlqnuhgg216"]
 
 [ext_resource type="PackedScene" uid="uid://cjw55mqk8mi0r" path="res://scenes/player.tscn" id="1_cd2w4"]
 [ext_resource type="Texture2D" uid="uid://c0lbm14ku05k0" path="res://assets/sprites/world_tileset.png" id="2_3axat"]
 [ext_resource type="PackedScene" uid="uid://bi5v440b0xtow" path="res://scenes/platform.tscn" id="3_34fxw"]
+[ext_resource type="PackedScene" uid="uid://batlpqwp42jrj" path="res://scenes/coin.tscn" id="4_qotk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp2ps"]
 texture = ExtResource("2_3axat")
@@ -408,6 +409,21 @@ texture = ExtResource("2_3axat")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pp2ps")
 
+[sub_resource type="Animation" id="Animation_db0x4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(530, 133)]
+}
+
 [sub_resource type="Animation" id="Animation_plv3v"]
 resource_name = "move"
 length = 2.0
@@ -425,21 +441,6 @@ tracks/0/keys = {
 "values": [Vector2(530, 133), Vector2(705, 133)]
 }
 
-[sub_resource type="Animation" id="Animation_db0x4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(530, 133)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u5q8n"]
 _data = {
 "RESET": SubResource("Animation_db0x4"),
@@ -455,6 +456,7 @@ layer_0/tile_data = PackedInt32Array(131073, 0, 0, 131074, 0, 0, 196608, 0, 0, 2
 
 [node name="Player" parent="." instance=ExtResource("1_cd2w4")]
 position = Vector2(31, 34)
+collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -7)
@@ -472,3 +474,18 @@ libraries = {
 "": SubResource("AnimationLibrary_u5q8n")
 }
 autoplay = "move"
+
+[node name="Coin" parent="." instance=ExtResource("4_qotk2")]
+position = Vector2(32, -8)
+
+[node name="Coin2" parent="." instance=ExtResource("4_qotk2")]
+position = Vector2(-9, 42)
+
+[node name="Coin3" parent="." instance=ExtResource("4_qotk2")]
+position = Vector2(264, -23)
+
+[node name="Coin4" parent="." instance=ExtResource("4_qotk2")]
+position = Vector2(376, 122)
+
+[node name="Coin5" parent="." instance=ExtResource("4_qotk2")]
+position = Vector2(200, 74)
