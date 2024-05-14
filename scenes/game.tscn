@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnvlqnuhgg216"]
+[gd_scene load_steps=14 format=3 uid="uid://dnvlqnuhgg216"]
 
 [ext_resource type="PackedScene" uid="uid://cjw55mqk8mi0r" path="res://scenes/player.tscn" id="1_cd2w4"]
 [ext_resource type="Texture2D" uid="uid://c0lbm14ku05k0" path="res://assets/sprites/world_tileset.png" id="2_3axat"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://batlpqwp42jrj" path="res://scenes/coin.tscn" id="4_qotk2"]
 [ext_resource type="PackedScene" uid="uid://cedhqpj0c303y" path="res://scenes/killzone.tscn" id="5_lbgh4"]
 [ext_resource type="PackedScene" uid="uid://ktxxuoocseay" path="res://scenes/slime.tscn" id="6_a67ug"]
+[ext_resource type="FontFile" uid="uid://bpmghacfe0wi2" path="res://assets/fonts/PixelOperator8.ttf" id="7_kwxkw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pp2ps"]
 texture = ExtResource("2_3axat")
@@ -527,3 +528,45 @@ autoplay = "move"
 
 [node name="Slime" parent="." instance=ExtResource("6_a67ug")]
 position = Vector2(252, 111)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = 4.0
+offset_top = -24.0
+offset_right = 118.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwxkw")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump."
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 174.0
+offset_top = -55.0
+offset_right = 260.0
+offset_bottom = -32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwxkw")
+theme_override_font_sizes/font_size = 8
+text = "Collect coins!"
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 223.0
+offset_top = 62.0
+offset_right = 305.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwxkw")
+theme_override_font_sizes/font_size = 8
+text = "Avoid slimes."
+
+[node name="Label4" type="Label" parent="Labels"]
+offset_left = 465.0
+offset_top = 83.0
+offset_right = 539.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwxkw")
+theme_override_font_sizes/font_size = 8
+text = "Don't fall..."
