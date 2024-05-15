@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnvlqnuhgg216"]
+[gd_scene load_steps=16 format=3 uid="uid://dnvlqnuhgg216"]
 
 [ext_resource type="PackedScene" uid="uid://cjw55mqk8mi0r" path="res://scenes/player.tscn" id="1_cd2w4"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_nvi3k"]
 [ext_resource type="Texture2D" uid="uid://c0lbm14ku05k0" path="res://assets/sprites/world_tileset.png" id="2_3axat"]
+[ext_resource type="FontFile" uid="uid://bh3s1ihdmr2kc" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_w6xr8"]
 [ext_resource type="PackedScene" uid="uid://bi5v440b0xtow" path="res://scenes/platform.tscn" id="3_34fxw"]
 [ext_resource type="PackedScene" uid="uid://batlpqwp42jrj" path="res://scenes/coin.tscn" id="4_qotk2"]
 [ext_resource type="PackedScene" uid="uid://cedhqpj0c303y" path="res://scenes/killzone.tscn" id="5_lbgh4"]
@@ -454,6 +456,22 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_nvi3k")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 687.0
+offset_top = 27.0
+offset_right = 853.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w6xr8")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -1)
 tile_set = SubResource("TileSet_bisbh")
@@ -501,7 +519,7 @@ position = Vector2(200, 74)
 position = Vector2(474, 111)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("4_qotk2")]
-position = Vector2(751, 79)
+position = Vector2(734, 88)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("4_qotk2")]
 position = Vector2(344, -56)
@@ -570,3 +588,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_kwxkw")
 theme_override_font_sizes/font_size = 8
 text = "Don't fall..."
+
+[node name="Label5" type="Label" parent="Labels"]
+offset_left = 705.0
+offset_top = 13.0
+offset_right = 838.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_kwxkw")
+theme_override_font_sizes/font_size = 8
+text = "Congrats!! You did it!"
